@@ -16,8 +16,9 @@ COPY ./cli_keys/* /etc/openvpn/ccd/
 
 #Turn on forwarding and set iptables rules
 RUN echo "net.ipv4.ip_forward = 1" > /etc/sysctl.conf
-RUN iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
-#RUN 
+
+Doesn't work if you know how to fix it contact me
+#RUN iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
 
 # make default work dir 
 WORKDIR /etc/openvpn
