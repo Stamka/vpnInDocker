@@ -7,20 +7,25 @@ You can use it in AWS or IDS
 Usage:
 connect to remote server
 
-git clone https://github.com/Stamka/vpnInDocker
+__git clone https://github.com/Stamka/vpnInDocker__
 
-cd vpnInDocker
-docker build .
-docker run -it --privileged -p 31337:31337 <docker id from prev step>
+__cd vpnInDocker__
+
+__docker build .__
+
+__docker run -it --privileged -p 31337:31337 \<docker id from prev step\>__
 
 --in container
 
-iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
-openvpn --config ovpn-server.conf
+__iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE__
+  
+  
+__openvpn --config ovpn-server.conf__
 
 
 -- On your host 
-openvpn --config ./cli_keys/stamka.conf
+  
+__openvpn --config ./cli_keys/stamka.conf__
 
 
 -- You can generate your own keys and config using easyRSA
